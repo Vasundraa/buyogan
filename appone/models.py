@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+
 # Create your models here.
 class Product(models.Model):
     name = models.CharField(max_length=255)
@@ -22,6 +23,7 @@ class Productshop(models.Model):
 
     def __str__(self):
         return self.name
+
 class Cart(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
@@ -43,3 +45,13 @@ class CartItem(models.Model):
 
     def __str__(self):
         return f"{self.product.name} ({self.quantity})"
+
+class Payment(models.Model):
+    order_id = models.CharField(max_length=100)
+    payment_id = models.CharField(max_length=100, blank=True, null=True)
+    amount = models.FloatField()
+    status = models.CharField(max_length=50, default='created')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.order_id

@@ -1,9 +1,13 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
-from django.core.paginator import Paginator, EmptyPage  # Import Paginator and EmptyPage
-from .models import Product, Productshop  # Import Product and Productshop models
+from django.core.paginator import Paginator, EmptyPage
+from django.http import JsonResponse, HttpResponseBadRequest
+from django.contrib.auth.decorators import login_required
+from .models import Product, Productshop, Cart, CartItem, Payment
 from .forms import SignupForm, LoginForm
+from django.conf import settings
+import razorpay
 
 def cg(request):
     return render(request, 'about.html')
@@ -21,7 +25,7 @@ def cg4(request):
     return render(request, 'gallery.html')
 
 def cg5(request):
-    products = Product.objects.all()  # Retrieve all products
+    products = Product.objects.all()
     return render(request, 'index.html', {'products': products})
 
 def cg6(request):
@@ -38,7 +42,7 @@ def shop(request):
         productshop = productshop.order_by(ordering)
 
     page = request.GET.get('page', 1)
-    PRODUCTS_PER_PAGE = 10  # Set the number of products per page
+    PRODUCTS_PER_PAGE = 10
 
     product_paginator = Paginator(productshop, PRODUCTS_PER_PAGE)
 
@@ -61,7 +65,7 @@ def login_view(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('index')  # Redirect to the homepage after login
+                return redirect('index')
             else:
                 return render(request, 'login.html', {'form': form, 'error_message': 'Invalid username or password.'})
     else:
@@ -79,7 +83,7 @@ def signup_view(request):
             if user is not None:
                 login(request, user)
                 messages.success(request, 'You have successfully signed up!')
-                return redirect('index')  # Redirect to the homepage after signup
+                return redirect('index')
     else:
         form = SignupForm()
     return render(request, 'login.html', {'form': form})
@@ -93,14 +97,6 @@ def cg12(request):
 def cg13(request):
     return render(request, 's3.html')
 
-
-# views.py
-
-from django.shortcuts import render, get_object_or_404, redirect
-from django.contrib.auth.decorators import login_required
-from .models import Product, Cart, CartItem
-from django.http import JsonResponse
-
 @login_required
 def add_to_cart(request, product_id):
     product = get_object_or_404(Product, id=product_id)
@@ -110,7 +106,6 @@ def add_to_cart(request, product_id):
         cart_item.quantity += 1
         cart_item.save()
 
-    # Calculate total price
     total_price = sum(item.product.price * item.quantity for item in cart.cartitem_set.all())
 
     return JsonResponse({
@@ -129,19 +124,71 @@ def shop_view(request):
     products = Product.objects.all()
     return render(request, 'shop.html', {'productshop': products})
 
+@login_required
 def db1(request):
+    if request.method == 'POST':
+        amount = 1000  # Example amount, you can set it dynamically based on your requirements
+        client = razorpay.Client(auth=(settings.RAZORPAY_KEY_ID, settings.RAZORPAY_KEY_SECRET))
+        order = client.order.create({'amount': amount * 100, 'currency': 'INR', 'payment_capture': '1'})
+
+        payment = Payment(order_id=order['id'], amount=amount)
+        payment.save()
+
+        context = {
+            'order_id': order['id'],
+            'amount': amount * 100,  # Multiply by 100 to convert to paisa (Razorpay expects amount in paisa)
+            'razorpay_key': settings.RAZORPAY_KEY_ID,
+        }
+        return render(request, 'payment.html', context)
     return render(request, 'dashboard.html')
+
+@login_required
+def payment_process(request):
+    if request.method == "POST":
+        order_id = request.POST.get("order_id")
+        payment_id = request.POST.get("razorpay_payment_id")
+        signature = request.POST.get("razorpay_signature")
+
+        client = razorpay.Client(auth=(settings.RAZORPAY_KEY_ID, settings.RAZORPAY_KEY_SECRET))
+
+        try:
+            client.utility.verify_payment_signature({
+                'razorpay_order_id': order_id,
+                'razorpay_payment_id': payment_id,
+                'razorpay_signature': signature
+            })
+
+            payment = Payment.objects.get(order_id=order_id)
+            payment.payment_id = payment_id
+            payment.status = 'paid'
+            payment.save()
+
+            messages.success(request, "Payment was successful.")
+            return redirect("suc")  
+        except razorpay.errors.SignatureVerificationError:
+            messages.error(request, "Payment verification failed.")
+            return redirect("fai")  
+    else:
+        return HttpResponseBadRequest("Invalid request method.")
+    
 
 def db2(request):
     return render(request, 'map.html')
 
-def db6(request):
-    return render(request, 'notifications.html')
 
 def db3(request):
     return render(request, 'tables.html')
 
+def db6(request):
+    return render(request, 'notifications.html')
+
+def pay(request):
+    return render(request, 'payment.html')
 
 
 
-    
+def suc(request):
+    return render(request, 'success.html')
+
+def fai(request):
+    return render(request, 'failure.html')

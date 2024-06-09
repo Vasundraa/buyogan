@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Razorpay Payment</title>
+</head>
+<body>
+    <h1>Razorpay Payment</h1>
+    <form id="paymentForm" action="{% url 'payment_process' %}" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="order_id" value="{{ order_id }}">
+        <input type="hidden" name="amount" value="{{ amount }}">
+        <input type="hidden" name="currency" value="INR">
+        <input type="hidden" name="razorpay_key" value="{{ razorpay_key }}">
+        <input type="hidden" name="razorpay_payment_id" id="razorpay_payment_id">
+        <input type="hidden" name="razorpay_signature" id="razorpay_signature">
+        <input type="text" name="name" placeholder="Your Name" value="{{ request.user.username }}">
+        <input type="email" name="email" placeholder="Your Email" value="{{ request.user.email }}">
+        <input type="tel" name="contact" placeholder="Your Contact Number" value="{{ request.user.profile.contact }}">
+        <button type="button" id="payNowButton">Pay Now</button>
+    </form>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+        var options = {
+            key: "{{ razorpay_key }}",
+            amount: "{{ amount }}",
+            currency: "INR",
+            name: "Your Company Name",
+            description: "Payment for Order",
+            image: "https://your-company-logo.png",
+            handler: function(response) {
+                // Handle the response after successful payment
+                document.getElementById('razorpay_payment_id').value = response.razorpay_payment_id;
+                document.getElementById('razorpay_signature').value = response.razorpay_signature;
+                document.getElementById('paymentForm').submit();
+            },
+            prefill: {
+                name: "{{ request.user.username }}",  // Prefill with user details if available
+                email: "{{ request.user.email }}",    // Prefill with user details if available
+                contact: "{{ request.user.profile.contact }}"  // Assuming you have contact in user profile
+            }
+        };
+        var rzp1 = new Razorpay(options);
+        document.getElementById('payNowButton').addEventListener('click', function(e){
+            rzp1.open();
+            e.preventDefault();
+        });
+    </script>
+</body>
+</html>

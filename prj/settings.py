@@ -59,7 +59,7 @@ ROOT_URLCONF = 'prj.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,11 +81,11 @@ WSGI_APPLICATION = 'prj.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME':'prj',
-        'USER':'postgres',
-        'PASSWORD':'Rishisaran1000',
-        'HOST':'localhost',
-        'PORT':'5432',
+        'NAME': 'prj',
+        'USER': 'postgres',
+        'PASSWORD': 'Rishisaran1000',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -126,10 +126,14 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-MEDIA_URL='/upload/'
-MEDIA_ROOT=os.path.join(BASE_DIR,'upload')
+MEDIA_URL = '/upload/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'upload')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Razorpay API Keys
+RAZORPAY_KEY_ID = 'rzp_test_k2BbdfngMY7erg'
+RAZORPAY_KEY_SECRET = 'ZPrWa422WGhRwMxmB5RPSVNT'
