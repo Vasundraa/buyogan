@@ -141,6 +141,9 @@ def db6(request):
 def db3(request):
     return render(request, 'tables.html')
 
+def sample(request):
+    return render(request, 'maporgi.html')
+
 
 
 
