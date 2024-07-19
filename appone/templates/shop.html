@@ -241,14 +241,14 @@
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane fade show active" id="grid-view">
                                     <div class="row">
-                                        {% for product in productshop %}
+                                        {% for products in productshop %}
                                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                             <div class="products-single fix">
                                                 <div class="box-img-hover">
                                                     <div class="type-lb">
                                                         <p class="sale">Sale</p>
                                                     </div>
-                                                    <img src="{{ product.image.url }}" class="img-fluid" alt="Image">
+                                                    <img src="{{ products.image.url }}" class="img-fluid" alt="Image">
                                                     <div class="mask-icon">
                                                         <ul>
                                                             <li><a href="#" data-toggle="tooltip" data-placement="right"
@@ -260,13 +260,13 @@
                                                                     title="Add to Wishlist"><i
                                                                         class="far fa-heart"></i></a></li>
                                                         </ul>
-                                                        <a class="cart" href="{% url 'add_to_cart' product.id %}">Add to
+                                                        <a class="cart" href="{% url 'add_to_cart' products.id %}">Add to
                                                             Cart</a>
                                                     </div>
                                                 </div>
                                                 <div class="why-text">
-                                                    <h4>{{ product.name }}</h4>
-                                                    <h5>{{ product.price }}</h5>
+                                                    <h4>{{ products.name }}</h4>
+                                                    <h5>{{ products.price }}</h5>
                                                 </div>
                                             </div>
                                         </div>

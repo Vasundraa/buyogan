@@ -124,7 +124,6 @@ def shop_view(request):
     products = Product.objects.all()
     return render(request, 'shop.html', {'productshop': products})
 
-@login_required
 def db1(request):
     if request.method == 'POST':
         amount = 1000  # Example amount, you can set it dynamically based on your requirements
@@ -178,6 +177,10 @@ def db2(request):
 
 def db3(request):
     return render(request, 'tables.html')
+
+def db6(request):
+    return render(request, 'notifications.html')
+
 
 
 

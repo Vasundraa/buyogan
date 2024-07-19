@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 from django.conf.urls.static import static
 from django.conf import settings
@@ -13,8 +13,8 @@ urlpatterns = [
     path('my-account/', views.cg6, name='my-account'),
     path('shop-detail/', views.cg7, name='shop-detail'),
     path('shop/',views.shop_view,name='shop'), 
-             path('add_to_cart/<int:product_id>/', views.add_to_cart, name='add_to_cart'),     
-             path('cart/', views.cart_view, name='cart'),      
+    path('add_to_cart/<int:product_id>/', views.add_to_cart, name='add_to_cart'),     
+    path('cart/', views.cart_view, name='cart'),      
     path('wishlist/', views.cg9, name='wishlist'),
     path('', views.login_view, name='login'),  # New URL pattern for login
     path('signup/', views.signup_view, name='signup'),  # New URL pattern for signup
@@ -25,7 +25,8 @@ urlpatterns = [
     path('payment_process/', views.payment_process, name='payment_process'),  # Add this line for payment process
     path('map/', views.db2, name='map'), 
     path('notifications/', views.db6, name='notifications'),     
-    path('tables/', views.db3, name='tables'),                    
+    path('tables/', views.db3, name='tables'),   
+    path('accounts/', include('django.contrib.auth.urls')),              
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
