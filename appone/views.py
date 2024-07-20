@@ -88,15 +88,6 @@ def signup_view(request):
         form = SignupForm()
     return render(request, 'login.html', {'form': form})
 
-def cg11(request):
-    return render(request, 's1.html')
-
-def cg12(request):
-    return render(request, 's2.html')
-
-def cg13(request):
-    return render(request, 's3.html')
-
 @login_required
 def add_to_cart(request, product_id):
     product = get_object_or_404(Product, id=product_id)
@@ -139,7 +130,7 @@ def db1(request):
             'razorpay_key': settings.RAZORPAY_KEY_ID,
         }
         return render(request, 'payment.html', context)
-    return render(request, 'dashboard.html')
+    return render(request, 'p-dashboard.html')
 
 @login_required
 def payment_process(request):
@@ -176,17 +167,22 @@ def db2(request):
 
 
 def db3(request):
-    return render(request, 'tables.html')
+    return render(request, 'p-schedule.html')
 
 def db6(request):
-    return render(request, 'notifications.html')
-
-
-
-
+    return render(request, 'p-order.html')
 
 def suc(request):
     return render(request, 'success.html')
 
 def fai(request):
     return render(request, 'failure.html')
+
+def ow1(request):
+    return render(request, 'o-dashboard.html')
+
+def ow2(request):
+    return render(request, 'o-schedule.html')
+
+def ow3(request):
+    return render(request, 'o-order.html')

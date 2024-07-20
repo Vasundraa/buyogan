@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Site Metas -->
-    <title>ThewayShop - </title>
+    <title>Buyoganic</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -38,6 +38,7 @@
 
 <body>
     <!-- Start Main Top -->
+     <!--
     <div class="main-top">
         <div class="container-fluid">
             <div class="row">
@@ -101,6 +102,7 @@
             </div>
         </div>
     </div>
+-->
     <!-- End Main Top -->
 
     <!-- Start Main Top -->
@@ -113,7 +115,7 @@
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                    <a class="navbar-brand" href="index.html"><img src="{% static 'assets/images/logo1.png' %}" class="logo" alt="" height="80" width="180"></a>
+                    <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'assets/images/logo1.png' %}" class="logo" alt="" height="80" width="180"></a>
                 </div>
                 <!-- End Header Navigation -->
 
@@ -122,6 +124,7 @@
 					<ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
 						<li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
 						<li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About Us</a></li>
+                        <!--
 						<li class="dropdown">
 							<a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">SHOP</a>
 							<ul class="dropdown-menu">
@@ -134,12 +137,14 @@
 							</ul>
 						</li>
 						<li class="nav-item"><a class="nav-link" href="{% url 'gallery' %}">Gallery</a></li>
+                        -->
 						<li class="nav-item active"><a class="nav-link" href="{% url 'contact-us' %}">Contact Us</a></li>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
 
                 <!-- Start Atribute Navigation -->
+            <!--
                 <div class="attr-nav">
                     <ul>
                         <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
@@ -150,9 +155,11 @@
 					</a></li>
                     </ul>
                 </div>
+               --> 
                 <!-- End Atribute Navigation -->
             </div>
             <!-- Start Side Menu -->
+             <!--
             <div class="side">
                 <a href="#" class="close-side"><i class="fa fa-times"></i></a>
                 <li class="cart-box">
@@ -179,6 +186,7 @@
                     </ul>
                 </li>
             </div>
+        -->
             <!-- End Side Menu -->
         </nav>
         <!-- End Navigation -->

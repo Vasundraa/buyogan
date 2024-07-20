@@ -18,15 +18,15 @@ urlpatterns = [
     path('wishlist/', views.cg9, name='wishlist'),
     path('', views.login_view, name='login'),  # New URL pattern for login
     path('signup/', views.signup_view, name='signup'),  # New URL pattern for signup
-    path('s1/', views.cg11, name='s1'),
-    path('s2/', views.cg12, name='s2'),
-    path('s3/', views.cg13, name='s3'),
-    path('dashboard/', views.db1, name='dashboard'),
+    path('p-dashboard/', views.db1, name='p-dashboard'),
     path('payment_process/', views.payment_process, name='payment_process'),  # Add this line for payment process
     path('map/', views.db2, name='map'), 
-    path('notifications/', views.db6, name='notifications'),     
-    path('tables/', views.db3, name='tables'),   
-    path('accounts/', include('django.contrib.auth.urls')),              
+    path('p-order/', views.db6, name='p-order'),     
+    path('p-schedule/', views.db3, name='p-schedule'),   
+    path('accounts/', include('django.contrib.auth.urls')),  
+    path('o-dashboard/', views.ow1, name='o-dashboard'),    
+    path('o-schedule/', views.ow2, name='o-schedule'), 
+    path('o-order/', views.ow3, name='o-order'),         
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

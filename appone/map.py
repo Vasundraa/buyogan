@@ -6,7 +6,7 @@ app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
 # Adafruit IO configuration
-ADAFRUIT_IO_KEY = 'aio_jjyD03U0FSWUhw6blzFVXUnzIvBX'
+ADAFRUIT_IO_KEY = 'aio_mbaf58jR6NM7pXqF4RHY8IfGCDd1'
 ADAFRUIT_IO_USERNAME = 'gps_location'
 FEED_NAME = 'location'
 

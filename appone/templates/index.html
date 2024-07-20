@@ -4,6 +4,43 @@
 <!-- Basic -->
 
 <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+      .categories-shop {
+        background-color: #f8f9fa;
+        padding: 40px 0;
+      }
+      .shop-cat-box {
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        padding: 15px;
+        margin: 0 auto;
+      }
+      .shop-cat-box img {
+        margin-bottom: 15px;
+      }
+      .shop-cat-box .btn {
+        background-color: #b0b435;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-transform: uppercase;
+      }
+      .shop-cat-box .btn:hover {
+        background-color: #9a9a3f;
+      }
+      .row-centered {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
@@ -48,7 +85,7 @@
                     <div class="our-link">
                         <ul>
                             <li><a href="{% url 'my-account' %}"><i class="fa fa-user s_color"></i> My Account</a></li>
-                            <li><a href="#"><i class="fas fa-location-arrow"></i> INDIA</a></li>
+                            <li><a href="#"><i class="fas fa-location-arrow"></i>INDIA</a></li>
                             
                         </ul>
                     </div>
@@ -110,6 +147,7 @@
                     <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
                         <li class="nav-item active"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About Us</a></li>
+                        <!--
                         <li class="dropdown">
                             <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">SHOP</a>
                             <ul class="dropdown-menu">
@@ -122,12 +160,14 @@
                             </ul>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'gallery' %}">Gallery</a></li>
-                        
+                        -->
+                        <li class="nav-item"><a class="nav-link" href="{% url 'contact-us' %}">Contact Us</a></li>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
 
                 <!-- Start Atribute Navigation -->
+<!--
                 <div class="attr-nav">
                     <ul>
                         <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
@@ -140,6 +180,7 @@
 						</li>
                     </ul>
                 </div>
+-->
                 <!-- End Atribute Navigation -->
             </div>
             <!-- Start Side Menu -->
@@ -231,31 +272,26 @@
     <!-- Start Categories  -->
     <div class="categories-shop">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                    <div class="shop-cat-box">
-                        <img class="img-fluid" src="{% static 'assets/images/plasticwaste.png' %}" alt="" height="80" width="180"/>
-                        <a class="btn hvr-hover" href="{% url 'dashboard' %}">SUBMIT YOUR PLASTICS</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                    <div class="shop-cat-box">
-                        <img class="img-fluid" src="{% static 'assets/images/biowast.png' %}" alt="" />
-                        <a class="btn hvr-hover" href="{% url 'dashboard' %}">BIODEGRADABLE WASTES</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                    <div class="shop-cat-box">
-                        <img class="img-fluid" src="{% static 'assets/images/buying.png' %}" alt="" />
-                        <a class="btn hvr-hover" href="{% url 'gallery' %}">BUY RECYCLED PRODUCTS</a>
-                    </div>
-                </div>
+          <div class="row row-centered">
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+              <div class="shop-cat-box">
+                <img class="img-fluid" src="{% static 'assets/images/plasticwaste.png' %}" alt="Plastic Waste" height="80" width="180"/>
+                <a class="btn hvr-hover" href="{% url 'p-dashboard' %}">Submit Your Plastics</a>
+              </div>
             </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+              <div class="shop-cat-box">
+                <img class="img-fluid" src="{% static 'assets/images/biowast.png' %}" alt="Biodegradable Waste" />
+                <a class="btn hvr-hover" href="{% url 'o-dashboard' %}">Biodegradable Wastes</a>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
     <!-- End Categories -->
 
     <!-- Start Products  -->
+     <!--
     <div class="products-box">
         <div class="container">
             <div class="row">
@@ -307,6 +343,7 @@
 
         </div>
     </div>
+    -->
     <!-- End Products  -->
 
     <!-- Start Blog  -->
@@ -382,6 +419,7 @@
 
 
     <!-- Start Instagram Feed  -->
+     <!--
     <div class="instagram-box">
         <div class="main-instagram owl-carousel owl-theme">
             <div class="item">
@@ -466,6 +504,7 @@
             </div>
         </div>
     </div>
+    -->
     <!-- End Instagram Feed  -->
 
 
@@ -578,6 +617,10 @@
     <script src="{% static 'assets/js/form-validator.min.js' %}"></script>
     <script src="{% static 'assets/js/contact-form-script.js' %}"></script>
     <script src="{% static 'assets/js/custom.js' %}"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>
