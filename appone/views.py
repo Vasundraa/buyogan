@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage
 from django.http import JsonResponse, HttpResponseBadRequest
 from django.contrib.auth.decorators import login_required
-from .models import Product, Productshop, Cart, CartItem, Payment
+from .models import Product, Cart, CartItem, Payment
 from .forms import SignupForm, LoginForm
 from django.conf import settings
 import razorpay
@@ -114,10 +114,10 @@ def cart_view(request):
 def shop_view(request):
     products = Product.objects.all()
     return render(request, 'shop.html', {'productshop': products})
-
+'''
 def db1(request):
     if request.method == 'POST':
-        amount = 1000  # Example amount, you can set it dynamically based on your requirements
+        amount = 1000 
         client = razorpay.Client(auth=(settings.RAZORPAY_KEY_ID, settings.RAZORPAY_KEY_SECRET))
         order = client.order.create({'amount': amount * 100, 'currency': 'INR', 'payment_capture': '1'})
 
@@ -126,11 +126,12 @@ def db1(request):
 
         context = {
             'order_id': order['id'],
-            'amount': amount * 100,  # Multiply by 100 to convert to paisa (Razorpay expects amount in paisa)
+            'amount': amount * 100,  
             'razorpay_key': settings.RAZORPAY_KEY_ID,
         }
         return render(request, 'payment.html', context)
     return render(request, 'p-dashboard.html')
+'''
 
 @login_required
 def payment_process(request):
@@ -165,12 +166,14 @@ def payment_process(request):
 def db2(request):
     return render(request, 'map.html')
 
+def db1(request):
+    return render(request, 'dashboard.html')
 
 def db3(request):
-    return render(request, 'p-schedule.html')
+    return render(request, 'schedule.html')
 
 def db6(request):
-    return render(request, 'p-order.html')
+    return render(request, 'order.html')
 
 def suc(request):
     return render(request, 'success.html')
@@ -178,11 +181,3 @@ def suc(request):
 def fai(request):
     return render(request, 'failure.html')
 
-def ow1(request):
-    return render(request, 'o-dashboard.html')
-
-def ow2(request):
-    return render(request, 'o-schedule.html')
-
-def ow3(request):
-    return render(request, 'o-order.html')

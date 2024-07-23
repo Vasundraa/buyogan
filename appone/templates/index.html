@@ -8,6 +8,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
+.shop-cat-box {
+  text-align: center;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+}
+
+.shop-cat-box img {
+  max-width: 100%;
+  height: auto;
+}
+
+.shop-cat-box .btn {
+  margin-top: 10px;
+}
+
+@media (min-width: 1200px) {
+  .col-lg-3 {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+}
+
+@media (max-width: 1199px) and (min-width: 992px) {
+  .col-lg-3, .col-md-4 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+  .col-md-4, .col-sm-6 {
+    flex: 0 0 33.3333%;
+    max-width: 33.3333%;
+  }
+}
+
+@media (max-width: 767px) {
+  .col-sm-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+
       .categories-shop {
         background-color: #f8f9fa;
         padding: 40px 0;
@@ -79,13 +125,10 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="right-phone-box">
-                        <p>Call US :- <a href="#"> +91 9489413266</a></p>
-                    </div>
                     <div class="our-link">
                         <ul>
-                            <li><a href="{% url 'my-account' %}"><i class="fa fa-user s_color"></i> My Account</a></li>
-                            <li><a href="#"><i class="fas fa-location-arrow"></i>INDIA</a></li>
+                            <li><a href="{% url 'admin:index' %}"><i class="fa fa-user s_color"></i>Admin</a></li>
+                            <li><a href="#">Under UBA Scheme</a></li>
                             
                         </ul>
                     </div>
@@ -96,28 +139,19 @@
                         <div id="offer-box" class="carouselTicker">
                             <ul class="offer-box">
                                 <li>
-                                    <i class="fab fa-opencart"></i> 20% off Entire Purchase Promo code: offT80
+                                   UBA scheme
                                 </li>
                                 <li>
-                                    <i class="fab fa-opencart"></i> 50% - 80% off on paper straws
+                                    Plastic and organic waste collection
                                 </li>
                                 <li>
-                                    <i class="fab fa-opencart"></i> Off 10%! Shop eco-bags
+                                   Kakkadavu
                                 </li>
                                 <li>
-                                    <i class="fab fa-opencart"></i> Off 50%! Shop Now
+                                   Unnat Bharat Abhiyan Scheme
                                 </li>
                                 <li>
-                                    <i class="fab fa-opencart"></i> Off 10%! Shop jute bags
-                                </li>
-                                <li>
-                                    <i class="fab fa-opencart"></i> 50% - 80% off on wool
-                                </li>
-                                <li>
-                                    <i class="fab fa-opencart"></i> 20% off Entire Purchase Promo code: offT30
-                                </li>
-                                <li>
-                                    <i class="fab fa-opencart"></i> Off 50%! Shop Now 
+                                   Waste management
                                 </li>
                             </ul>
                         </div>
@@ -146,6 +180,7 @@
                 <div class="collapse navbar-collapse" id="navbar-menu">
                     <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
                         <li class="nav-item active"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'shop' %}">Shop</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About Us</a></li>
                         <!--
                         <li class="dropdown">
@@ -184,6 +219,9 @@
                 <!-- End Atribute Navigation -->
             </div>
             <!-- Start Side Menu -->
+
+
+            <!--
             <div class="side">
                 <a href="#" class="close-side"><i class="fa fa-times"></i></a>
                 <li class="cart-box">
@@ -210,6 +248,7 @@
                     </ul>
                 </li>
             </div>
+-->
             <!-- End Side Menu -->
         </nav>
         <!-- End Navigation -->
@@ -272,22 +311,35 @@
     <!-- Start Categories  -->
     <div class="categories-shop">
         <div class="container">
-          <div class="row row-centered">
-            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+          <div class="row justify-content-center">
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
               <div class="shop-cat-box">
-                <img class="img-fluid" src="{% static 'assets/images/plasticwaste.png' %}" alt="Plastic Waste" height="80" width="180"/>
-                <a class="btn hvr-hover" href="{% url 'p-dashboard' %}">Submit Your Plastics</a>
+                <img class="img-fluid" src="{% static 'assets/images/schedule.png' %}" alt="Plastic Waste" />
+                <a class="btn hvr-hover" href="{% url 'schedule' %}">Schedule</a>
               </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
               <div class="shop-cat-box">
-                <img class="img-fluid" src="{% static 'assets/images/biowast.png' %}" alt="Biodegradable Waste" />
-                <a class="btn hvr-hover" href="{% url 'o-dashboard' %}">Biodegradable Wastes</a>
+                <img class="img-fluid" src="{% static 'assets/images/location.jpg' %}" alt="Biodegradable Waste" />
+                <a class="btn hvr-hover" href="{% url 'map' %}">Truck location</a>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+              <div class="shop-cat-box">
+                <img class="img-fluid" src="{% static 'assets/images/dashboard.png' %}" alt="Biodegradable Waste" />
+                <a class="btn hvr-hover" href="{% url 'dashboard' %}">Dashboard</a>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+              <div class="shop-cat-box">
+                <img class="img-fluid" src="{% static 'assets/images/order.png' %}" alt="Biodegradable Waste" />
+                <a class="btn hvr-hover" href="{% url 'order' %}">Place order</a>
               </div>
             </div>
           </div>
         </div>
       </div>
+      
     <!-- End Categories -->
 
     <!-- Start Products  -->
