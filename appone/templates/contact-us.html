@@ -17,8 +17,8 @@
     <meta name="author" content="">
 
     <!-- Site Icons -->
-    <link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}" type="image/x-icon">
-    <link rel="apple-touch-icon" href="{% static 'assets/images/apple-touch-icon.png' %}">
+    <link rel="shortcut icon" href="{% static 'assets/images/favicon.png' %}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="{% static 'assets/images/favicon.png' %}">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
@@ -43,13 +43,18 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="our-link">
-                        <ul>
-                            <li><a href="{% url 'admin:index' %}"><i class="fa fa-user s_color"></i>Admin</a></li>
-                            <li><a href="#">Under UBA Scheme</a></li>
-                            
-                        </ul>
+                      <ul>
+                        <li><a href="{% url 'admin:index' %}"><i class="fa fa-user s_color"></i>Admin</a></li>
+                        <li>
+                          <a href="#">
+                            <img src="{% static 'assets\images\UBA-Logo.jpg' %}" alt="UBA Logo" style="width: 20px; height: auto; vertical-align: middle; margin-right: 5px;">
+                            Under UBA Scheme
+                          </a>
+                        </li>
+                      </ul>
                     </div>
-                </div>
+                  </div>
+                  
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 					
                     <div class="text-slid-box">
@@ -256,28 +261,14 @@
 				<div class="row">
 					<div class="col-lg-4 col-md-12 col-sm-12">
 						<div class="footer-top-box">
-							<h3>Business Time</h3>
-							<ul class="list-time">
-								<li>Monday - Friday: 08.00am to 05.00pm</li> <li>Saturday: 10.00am to 08.00pm</li> <li>Sunday: <span>Closed</span></li>
-							</ul>
+							
 						</div>
 					</div>
-					<div class="col-lg-4 col-md-12 col-sm-12">
-						<div class="footer-top-box">
-							<h3>Newsletter</h3>
-							<form class="newsletter-box">
-								<div class="form-group">
-									<input class="" type="email" name="Email" placeholder="Email Address*" />
-									<i class="fa fa-envelope"></i>
-								</div>
-								<button class="btn hvr-hover" type="submit">Submit</button>
-							</form>
-						</div>
-					</div>
+                    <!--
 					<div class="col-lg-4 col-md-12 col-sm-12">
 						<div class="footer-top-box">
 							<h3>Social Media</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							<p>Connect with us on our other social media platforms!.</p>
 							<ul>
                                 <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
                                 <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
@@ -288,17 +279,21 @@
                                 <li><a href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i></a></li>
                             </ul>
 						</div>
-					</div>
+					</div>-->
 				</div>
 				<hr>
                 <div class="row">
                     <div class="col-lg-4 col-md-12 col-sm-12">
                         <div class="footer-widget">
                             <h4>About Buyoganic</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p> 							
+                            <p>
+
+                                Welcome to Buyoganic, where three passionate college students have come together to revolutionize the way we interact with our environment. Our mission is simple yet profound: to transform the world into a greener, more sustainable place by eliminating plastics and harnessing biodegradable waste.
+                                
+                                At Buyoganic, we believe in the power of eco-friendly alternatives. Our platform is dedicated to promoting and providing access to products that are kind to our planet. Join us in our journey to create a cleaner, healthier world for future generations. Together, we can make a difference, one biodegradable product at a time.</p> 							
                         </div>
                     </div>
+              <!--
                     <div class="col-lg-4 col-md-12 col-sm-12">
                         <div class="footer-link">
                             <h4>Information</h4>
@@ -311,23 +306,36 @@
                                 <li><a href="#">Delivery Information</a></li>
                             </ul>
                         </div>
-                    </div>
+                    </div>-->
                     <div class="col-lg-4 col-md-12 col-sm-12">
                         <div class="footer-link-contact">
-                            <h4>Contact Us</h4>
+                            <h4>Contact us</h4>
                             <ul>
                                 <li>
-                                    <p><i class="fas fa-map-marker-alt"></i>Address: Michael I. Days 3756 <br>Preston Street Wichita,<br> KS 67213 </p>
+                                    <p><i class="fas fa-map-marker-alt"></i>Address:Dr.N.G.P. ITech, Kalapatti Main Rd, Coimbatore, Tamil Nadu 641048</p>
                                 </li>
                                 <li>
-                                    <p><i class="fas fa-phone-square"></i>Phone: <a href="tel:+1-888705770">+1-888 705 770</a></p>
+                                    <p><i class="fas fa-phone-square"></i>Phone: <a href="tel:+91 9489413266">+91 0422 236 9105</a></p>
                                 </li>
                                 <li>
-                                    <p><i class="fas fa-envelope"></i>Email: <a href="mailto:contactinfo@gmail.com">contactinfo@gmail.com</a></p>
+                                    <p><i class="fas fa-envelope"></i>Email: <a href="mailto:buyoganicsupport@gmail.com">buyoganicsupport@gmail.com</a></p>
                                 </li>
                             </ul>
                         </div>
                     </div>
+
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+						<div class="footer-link">
+							<h4>Newsletter</h4>
+							<form class="newsletter-box">
+								<div class="form-group">
+									<input class="" type="email" name="Email" placeholder="Email Address*" />
+									<i class="fa fa-envelope"></i>
+								</div>
+								<button class="btn hvr-hover" type="submit">Submit</button>
+							</form>
+						</div>
+					</div>
                 </div>
             </div>
         </div>
@@ -336,8 +344,7 @@
 
     <!-- Start copyright  -->
     <div class="footer-copyright">
-        <p class="footer-company">All Rights Reserved. &copy; 2018 <a href="#">ThewayShop</a> Design By :
-            <a href="https://html.design/">html design</a></p>
+        <p class="footer-company">All Rights Reserved. &copy; 2024 <a href="{% url 'index' %}">Buyoganic</a>
     </div>
     <!-- End copyright  -->
 

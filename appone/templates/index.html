@@ -7,84 +7,78 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-.shop-cat-box {
-  text-align: center;
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  transition: all 0.3s ease-in-out;
-}
-
-.shop-cat-box img {
-  max-width: 100%;
-  height: auto;
-}
-
-.shop-cat-box .btn {
-  margin-top: 10px;
-}
-
-@media (min-width: 1200px) {
-  .col-lg-3 {
-    flex: 0 0 20%;
-    max-width: 20%;
-  }
-}
-
-@media (max-width: 1199px) and (min-width: 992px) {
-  .col-lg-3, .col-md-4 {
-    flex: 0 0 25%;
-    max-width: 25%;
-  }
-}
-
-@media (max-width: 991px) and (min-width: 768px) {
-  .col-md-4, .col-sm-6 {
-    flex: 0 0 33.3333%;
-    max-width: 33.3333%;
-  }
-}
-
-@media (max-width: 767px) {
-  .col-sm-6 {
-    flex: 0 0 50%;
-    max-width: 50%;
-  }
-}
-
-
-      .categories-shop {
-        background-color: #f8f9fa;
-        padding: 40px 0;
-      }
-      .shop-cat-box {
-        background-color: #ffffff;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    <style>.shop-cat-box {
         text-align: center;
         padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        transition: all 0.3s ease-in-out;
+        background-color: #ffffff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         margin: 0 auto;
       }
+      
       .shop-cat-box img {
+        max-width: 100%;
+        height: auto;
+        object-fit: contain; /* Ensure the image fits within its container without being cropped */
         margin-bottom: 15px;
       }
+      
       .shop-cat-box .btn {
+        margin-top: 10px;
         background-color: #b0b435;
         color: #fff;
         border: none;
         padding: 10px 20px;
         border-radius: 5px;
         text-transform: uppercase;
+        transition: background-color 0.3s ease-in-out;
       }
+      
       .shop-cat-box .btn:hover {
         background-color: #9a9a3f;
       }
+      
+      @media (min-width: 1200px) {
+        .col-lg-3 {
+          flex: 0 0 20%;
+          max-width: 20%;
+        }
+      }
+      
+      @media (max-width: 1199px) and (min-width: 992px) {
+        .col-lg-3, .col-md-4 {
+          flex: 0 0 25%;
+          max-width: 25%;
+        }
+      }
+      
+      @media (max-width: 991px) and (min-width: 768px) {
+        .col-md-4, .col-sm-6 {
+          flex: 0 0 33.3333%;
+          max-width: 33.3333%;
+        }
+      }
+      
+      @media (max-width: 767px) {
+        .col-sm-6 {
+          flex: 0 0 50%;
+          max-width: 50%;
+        }
+      }
+      
+      .categories-shop {
+        background-color: #f8f9fa;
+        padding: 40px 0;
+      }
+      
       .row-centered {
         display: flex;
         justify-content: center;
         align-items: center;
       }
+      
     </style>
 
     <meta charset="utf-8">
@@ -100,8 +94,8 @@
     <meta name="author" content="">
 
     <!-- Site Icons -->
-    <link rel="shortcut icon" href="{% static 'assets/images/logo1.png' %}" type="image/x-icon">
-    <link rel="favicon" href="{% static 'assets/images/logo1.png' %}">
+    <link rel="shortcut icon" href="{% static 'assets/images/favicon.png' %}" type="image/x-icon">
+    <link rel="favicon" href="{% static 'assets/images/favicon.png' %}">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
@@ -126,13 +120,18 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="our-link">
-                        <ul>
-                            <li><a href="{% url 'admin:index' %}"><i class="fa fa-user s_color"></i>Admin</a></li>
-                            <li><a href="#">Under UBA Scheme</a></li>
-                            
-                        </ul>
+                      <ul>
+                        <li><a href="{% url 'admin:index' %}"><i class="fa fa-user s_color"></i>Admin</a></li>
+                        <li>
+                          <a href="#">
+                            <img src="{% static 'assets\images\UBA-Logo.jpg' %}" alt="UBA Logo" style="width: 20px; height: auto; vertical-align: middle; margin-right: 5px;">
+                            Under UBA Scheme
+                          </a>
+                        </li>
+                      </ul>
                     </div>
-                </div>
+                  </div>
+                  
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 					
                     <div class="text-slid-box">
@@ -271,7 +270,7 @@
     <div id="slides-shop" class="cover-slides">
         <ul class="slides-container">
             <li class="text-center">
-                <img src="{% static 'assets/images/b1.jpg' %}" alt="">
+                <img src="{% static 'assets/images/b1.webp' %}" alt="">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
@@ -291,7 +290,7 @@
                 </div>
             </li>
             <li class="text-center">
-                <img src="{% static 'assets/images/bannernew.jpeg' %}" alt="">
+                <img src="{% static 'assets/images/b3.png' %}" alt="">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
@@ -320,7 +319,7 @@
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
               <div class="shop-cat-box">
-                <img class="img-fluid" src="{% static 'assets/images/location.jpg' %}" alt="Biodegradable Waste" />
+                <img class="img-fluid" src="{% static 'assets/images/location.png' %}" alt="Biodegradable Waste" />
                 <a class="btn hvr-hover" href="{% url 'map' %}">Truck location</a>
               </div>
             </div>
@@ -570,18 +569,7 @@
 							
 						</div>
 					</div>
-					<div class="col-lg-4 col-md-12 col-sm-12">
-						<div class="footer-top-box">
-							<h3>Newsletter</h3>
-							<form class="newsletter-box">
-								<div class="form-group">
-									<input class="" type="email" name="Email" placeholder="Email Address*" />
-									<i class="fa fa-envelope"></i>
-								</div>
-								<button class="btn hvr-hover" type="submit">Submit</button>
-							</form>
-						</div>
-					</div>
+                    <!--
 					<div class="col-lg-4 col-md-12 col-sm-12">
 						<div class="footer-top-box">
 							<h3>Social Media</h3>
@@ -596,7 +584,7 @@
                                 <li><a href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i></a></li>
                             </ul>
 						</div>
-					</div>
+					</div>-->
 				</div>
 				<hr>
                 <div class="row">
@@ -610,6 +598,7 @@
                                 At Buyoganic, we believe in the power of eco-friendly alternatives. Our platform is dedicated to promoting and providing access to products that are kind to our planet. Join us in our journey to create a cleaner, healthier world for future generations. Together, we can make a difference, one biodegradable product at a time.</p> 							
                         </div>
                     </div>
+              <!--
                     <div class="col-lg-4 col-md-12 col-sm-12">
                         <div class="footer-link">
                             <h4>Information</h4>
@@ -622,12 +611,13 @@
                                 <li><a href="#">Delivery Information</a></li>
                             </ul>
                         </div>
-                    </div>
+                    </div>-->
                     <div class="col-lg-4 col-md-12 col-sm-12">
                         <div class="footer-link-contact">
+                            <h4>Contact us</h4>
                             <ul>
                                 <li>
-                                    <p><i class="fas fa-map-marker-alt"></i>Address:Dr.N.G.P. Nagar, Kalapatti Main Rd, Coimbatore, Tamil Nadu 641048</p>
+                                    <p><i class="fas fa-map-marker-alt"></i>Address:Dr.N.G.P. ITech, Kalapatti Main Rd, Coimbatore, Tamil Nadu 641048</p>
                                 </li>
                                 <li>
                                     <p><i class="fas fa-phone-square"></i>Phone: <a href="tel:+91 9489413266">+91 0422 236 9105</a></p>
@@ -638,6 +628,19 @@
                             </ul>
                         </div>
                     </div>
+
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+						<div class="footer-link">
+							<h4>Newsletter</h4>
+							<form class="newsletter-box">
+								<div class="form-group">
+									<input class="" type="email" name="Email" placeholder="Email Address*" />
+									<i class="fa fa-envelope"></i>
+								</div>
+								<button class="btn hvr-hover" type="submit">Submit</button>
+							</form>
+						</div>
+					</div>
                 </div>
             </div>
         </div>
@@ -646,8 +649,7 @@
 
     <!-- Start copyright  -->
     <div class="footer-copyright">
-        <p class="footer-company">All Rights Reserved. &copy; 2018 <a href="#">ThewayShop</a> Design By :
-            <a href="https://html.design/">html design</a></p>
+        <p class="footer-company">All Rights Reserved. &copy; 2024 <a href="{% url 'index' %}">Buyoganic</a>
     </div>
     <!-- End copyright  -->
 
