@@ -57,13 +57,12 @@
           <h6 class="font-weight-bolder mb-0">Schedule</h6>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
-          <ul class="navbar-nav  justify-content-end">
-            <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
-              </a>
-            </li>
+          <ul class="navbar-nav justify-content-end ms-auto">
+              <li class="nav-item d-flex align-items-center">
+                  <a href="{% url 'index' %}" class="btn btn-primary">Back to Home</a>
+              </li>
           </ul>
-        </div>
+      </div>
       </div>
     </nav>
     <!-- End Navbar -->
@@ -91,158 +90,32 @@
                     </tr>
                   </thead>
                   <tbody>
+                    {% for item in delivery %}
                     <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Raj</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">Chinnavedampatti</p>
-                        <p class="text-xs text-secondary mb-0">Coimbatore</p>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="text-secondary text-xs font-weight-bold">22 Jul 2024</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">TN 38 BC 4536</span>
-                      </td>
-                      <td class="align-middle">
-                      </td>
+                        <td>
+                            <div class="d-flex px-2 py-1">
+                                <div class="d-flex flex-column justify-content-center">
+                                    <h6 class="mb-0 text-sm">{{ item.name }}</h6>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <p class="text-xs font-weight-bold mb-0">{{ item.area }}</p>
+                            <p class="text-xs text-secondary mb-0">{{ item.district }}</p>
+                        </td>
+                        <td class="align-middle text-center text-sm">
+                            <span class="text-secondary text-xs font-weight-bold">{{ item.date|date:"d M Y" }}</span>
+                        </td>
+                        <td class="align-middle text-center">
+                            <span class="text-secondary text-xs font-weight-bold">{{ item.truck_no }}</span>
+                        </td>
                     </tr>
+                    {% empty %}
                     <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Shekar</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">Annur</p>
-                        <p class="text-xs text-secondary mb-0">Coimbatore</p>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="text-secondary text-xs font-weight-bold">23 Jul 2024</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">TN 38 BC 1136</span>
-                      </td>
-                      <td class="align-middle">
-                      </td>
+                        <td colspan="4" class="text-center">No deliveries this week.</td>
                     </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Vignesh</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">Kalapatti</p>
-                        <p class="text-xs text-secondary mb-0">Coimbatore</p>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="text-secondary text-xs font-weight-bold">24 Jul 2024</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">TN 38 CC 3947</span>
-                      </td>
-                      <td class="align-middle">
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Kumar</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">PN palayam</p>
-                        <p class="text-xs text-secondary mb-0">Coimbatore</p>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="text-secondary text-xs font-weight-bold">25 Jul 2024</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">TN 38 FA 2532</span>
-                      </td>
-                      <td class="align-middle">
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Sundar</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">Thudiyalur</p>
-                        <p class="text-xs text-secondary mb-0">Coimbatore</p>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="text-secondary text-xs font-weight-bold">26 Jul 2024</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">TN 66 BD 7563 </span>
-                      </td>
-                      <td class="align-middle">
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Ram</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">Veerapandi</p>
-                        <p class="text-xs text-secondary mb-0">Coimbatore</p>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="text-secondary text-xs font-weight-bold">27 Jul 2024</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">TN 66 CH 3856</span>
-                      </td>
-                      <td class="align-middle">
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Prabhu</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">NSN palayam</p>
-                        <p class="text-xs text-secondary mb-0">Coimbatore</p>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="text-secondary text-xs font-weight-bold">28 Jul 2024</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">TN 38 CC 2347</span>
-                      </td>
-                      <td class="align-middle">
-                        <!--
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                          Edit
-                        </a>-->
-                      </td>
-                    </tr>
-                  </tbody>
+                    {% endfor %}
+                </tbody>
                 </table>
               </div>
             </div>

@@ -16,7 +16,6 @@ aio = Client(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)
 # Initialize variables to store latest coordinates
 latest_coordinates = {'latitude': None, 'longitude': None}
 
-
 # Function to fetch coordinates
 def fetch_coordinates():
     global latest_coordinates
@@ -36,12 +35,10 @@ def fetch_coordinates():
     except Exception as e:
         print(f'Unexpected error: {e}')
 
-
 # Route to render map.html
 @app.route('/map')
-def map():
+def map_view():
     return render_template('map.html')
-
 
 # Route to fetch coordinates
 @app.route('/get_coordinates')
@@ -49,10 +46,8 @@ def get_coordinates():
     fetch_coordinates()
     return jsonify(latest_coordinates)
 
-
 if __name__ == '__main__':
     # Fetch initial coordinates
     fetch_coordinates()
-
     # Start Flask web server
     app.run(debug=True)

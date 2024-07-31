@@ -49,6 +49,7 @@
         display: flex;
         flex-direction: column;
     }
+
     .main-content {
         flex-grow: 1;
         display: flex;
@@ -56,24 +57,30 @@
         padding: 20px;
         background-color: #f4f4f4;
     }
+
     .order-form-container {
         width: 100%;
-        max-width: 1200px;
+        max-width: 800px;
+        margin: 0 auto; /* Center the container */
         padding: 20px;
         background-color: #fff;
         border-radius: 8px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
-    .order-form {
-        display: flex;
-        flex-direction: column;
-    }
+
     .order-form h2 {
         margin-bottom: 20px;
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
     }
+
     .order-form label {
         margin-bottom: 5px;
+        font-weight: bold;
+        color: #333;
     }
+
     .order-form input, .order-form select, .order-form button {
         padding: 10px;
         margin-bottom: 15px;
@@ -81,110 +88,187 @@
         border-radius: 4px;
         width: 100%;
     }
+
+    .order-form input:focus, .order-form select:focus {
+        border-color: #b0b435;
+        outline: none;
+    }
+
     .order-form button {
         background-color: #b0b435;
         color: #fff;
         border: none;
         cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 10px;
+        border-radius: 4px;
     }
+
     .order-form button:hover {
         background-color: #b0b435;
     }
+
     .footer .container-fluid {
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
+
     .footer .nav-footer {
         display: flex;
         justify-content: center;
         gap: 20px;
     }
-  </style>
+
+    .messages {
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+    .alert {
+        padding: 15px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        margin-bottom: 15px;
+        position: relative;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        border: none;
+        background: none;
+        font-size: 20px;
+        cursor: pointer;
+        color: inherit;
+    }
+
+    .alert-info { background-color: #d1ecf1; color: #0c5460; border-color: #bee5eb; }
+    .alert-success { background-color: #d4edda; color: #155724; border-color: #c3e6cb; }
+    .alert-warning { background-color: #fff3cd; color: #856404; border-color: #ffeeba; }
+    .alert-danger { background-color: #f8d7da; color: #721c24; border-color: #f5c6cb; }
+</style>
+
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
-      <div class="container-fluid py-1 px-3">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Waste collection</a></li>
-            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Place order</li>
-          </ol>
-          <h6 class="font-weight-bolder mb-0">Place order</h6>
-        </nav>
-        <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
-          <ul class="navbar-nav justify-content-end ms-auto">
-            <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
-            </li>
-          </ul>
+        <div class="container-fluid py-1 px-3">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+                    <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Waste collection</a></li>
+                    <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Place order</li>
+                </ol>
+                <h6 class="font-weight-bolder mb-0">Place order</h6>
+            </nav>
+            <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+                <ul class="navbar-nav justify-content-end ms-auto">
+                    <li class="nav-item d-flex align-items-center">
+                        <a href="{% url 'dashboard' %}" class="btn btn-primary">Dashboard</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
     </nav>
     <!-- End Navbar -->
-    <div class="main-content container-fluid py-4">
-      <div class="order-form-container">
-        <form class="order-form">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="Enter your name" required>
-    
-          <label for="organization">Organization Name</label>
-          <input type="text" id="organization" name="organization" placeholder="Enter your organization name" required>
-          
-          <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
-    
-          <label for="email">Email ID</label>
-          <input type="email" id="email" name="email" placeholder="Enter your email ID" required>
-          <label for="waste-type">Type of Waste Needed</label>
-          <select id="waste-type" name="waste-type" required>
-              <option value="" disabled selected>Select waste type</option>
-              <option value="pet">PET</option>
-              <option value="hdpe">HDPE</option>
-              <option value="pvc">PVC</option>
-              <option value="organic">Organic</option>
-              <option value="others">Others</option>
-          </select>   
 
-          <label for="amount">Amount of Waste Needed (kg)</label>
-          <input type="number" id="amount" name="amount" placeholder="Enter amount of waste needed" required>
-    
-          <button type="submit">Place Order</button>
-        </form>
-      </div>
-      <footer class="footer py-4  ">
-        <div class="container-fluid">
-          <div class="row align-items-center justify-content-lg-between">
-            <div class="col-lg-6 mb-lg-0 mb-4">
-              <div class="copyright text-center text-sm text-muted text-lg-start">
-                ©
-                <script>
-                  document.write(new Date().getFullYear())
-                </script>,
-                made with <i class="fa fa-heart"></i> by
-                <a href="{% url 'index' %}" class="font-weight-bold" target="_blank">Buyoganic</a>
-                for a better web.
+    <div class="main-content container-fluid py-4">
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                        <button class="close-btn" onclick="this.parentElement.style.display='none';">×</button>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <!-- Display form errors -->
+        {% if form.errors %}
+        <div class="errors">
+            <div class="alert alert-danger">
+                <ul>
+                    {% for field, errors in form.errors.items %}
+                        {% for error in errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
+                <button class="close-btn" onclick="this.parentElement.style.display='none';">×</button>
+            </div>
+        </div>
+    {% endif %}
+
+        <div class="order-form-container">
+            <form class="order-form" method="post">
+                {% csrf_token %}
+
+                <h2>Place Your Order</h2>
+                
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                
+                <label for="organization_name">Organization Name</label>
+                <input type="text" id="organization_name" name="organization_name" placeholder="Enter your organization name" required>
+                
+                <label for="phone_number">Phone Number</label>
+                <input type="tel" id="phone_number" name="phone_number" placeholder="Enter your phone number" required pattern="\d{10}" title="Please enter a 10-digit phone number">
+                
+                <label for="email_id">Email ID</label>
+                <input type="email" id="email_id" name="email_id" placeholder="Enter your email ID" required>
+                
+                <label for="waste_type">Type of Waste Needed</label>
+                <select id="waste_type" name="waste_type" required>
+                    <option value="" disabled selected>Select waste type</option>
+                    <option value="PET">PET</option>
+                    <option value="HDPE">HDPE</option>
+                    <option value="PVC">PVC</option>
+                    <option value="Organic">Organic</option>
+                    <option value="Others">Others</option>
+                </select>
+                
+                <label for="amount_needed">Amount of Waste Needed (kg)</label>
+                <input type="number" id="amount_needed" name="amount_needed" placeholder="Enter amount of waste needed" required>
+                
+                <button type="submit">Place Order</button>
+            </form>
+        </div>
+
+        <footer class="footer py-4  ">
+          <div class="container-fluid">
+            <div class="row align-items-center justify-content-lg-between">
+              <div class="col-lg-6 mb-lg-0 mb-4">
+                <div class="copyright text-center text-sm text-muted text-lg-start">
+                  ©
+                  <script>
+                    document.write(new Date().getFullYear())
+                  </script>,
+                  made with <i class="fa fa-heart"></i> by
+                  <a href="{% url 'index' %}" class="font-weight-bold" target="_blank">Buyoganic</a>
+                  for a better web.
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+                  <li class="nav-item">
+                    <a href="{% url 'index' %}" class="nav-link text-muted" target="_blank">Buyoganic</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{% url 'about' %}" class="nav-link text-muted" target="_blank">About
+                      Us</a>
+                  </li>
+                </ul>
               </div>
             </div>
-            <div class="col-lg-6">
-              <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                <li class="nav-item">
-                  <a href="{% url 'index' %}" class="nav-link text-muted" target="_blank">Buyoganic</a>
-                </li>
-                <li class="nav-item">
-                  <a href="{% url 'about' %}" class="nav-link text-muted" target="_blank">About
-                    Us</a>
-                </li>
-              </ul>
-            </div>
           </div>
-        </div>
-      </footer>
+        </footer>
     </div>
-    
-  </main>
+</main>
   <!--   Core JS Files   -->
   <script src="../static/assets/js/core/popper.min.js"></script>
   <script src="../static/assets/js/core/bootstrap.min.js"></script>

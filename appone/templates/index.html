@@ -144,7 +144,7 @@
                                     Plastic and organic waste collection
                                 </li>
                                 <li>
-                                   Kakkadavu
+                                   Kakkadavu Village
                                 </li>
                                 <li>
                                    Unnat Bharat Abhiyan Scheme
@@ -186,7 +186,7 @@
                             <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">SHOP</a>
                             <ul class="dropdown-menu">
 								<li><a href="{% url 'shop' %}">Sidebar Shop</a></li>
-								<li><a href="{% url 'shop-detail' %}">Shop Detail</a></li>
+								<li><a href="">Shop Detail</a></li>
                                 <li><a href="{% url 'cart' %}">Cart</a></li>
                                 <li><a href="{% url 'checkout' %}">Checkout</a></li>
                                 <li><a href="{% url 'my-account' %}">My Account</a></li>
@@ -320,7 +320,7 @@
             <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
               <div class="shop-cat-box">
                 <img class="img-fluid" src="{% static 'assets/images/location.png' %}" alt="Biodegradable Waste" />
-                <a class="btn hvr-hover" href="{% url 'map' %}">Truck location</a>
+                <a class="btn hvr-hover" href="{% url 'maporgi' %}">Truck location</a>
               </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
@@ -404,7 +404,7 @@
                 <div class="col-lg-12">
                     <div class="title-all text-center">
                         <h1>BLOG CORNER</h1>
-                        <p>Merchants who are all consistent in bringing a change to the environment</p>
+                        <p>Today, recycle for a better tomorrow</p>
                     </div>
                 </div>
             </div>
@@ -416,50 +416,41 @@
                         </div>
                         <div class="blog-content">
                             <div class="title-blog">
-                                <h3>GENESIS</h3>
-                                <p>The College has been approved by the All India Council for Technical Education (AICTE), New Delhi and affiliated to Anna University, Chennai. </p>
-                            </div>
-                            <ul class="option-blog">
-                                <li><a href="#"><i class="far fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fas fa-eye"></i></a></li>
-                                <li><a href="#"><i class="far fa-comments"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-4">
-                    <div class="blog-box">
-                        <div class="blog-img">
-                            <img class="img-fluid" src="{% static 'assets/images/clg1.png' %}" alt="" />
-                        </div>
-                        <div class="blog-content">
-                            <div class="title-blog">
                                 <h3>VISION</h3>
-                                <p>To empower the students for succeeding in a changing world to become productive engineers and responsible citizens. Enhancing knowledge and skills in cutting edge technologies through alliances with industry and research organizations. </p>
+                                <p>To empower the students for succeeding in a changing world to become productive engineers and responsible citizens. The College has been approved by the All India Council for Technical Education (AICTE), New Delhi and affiliated to Anna University, Chennai. </p>
                             </div>
+                            <!--
                             <ul class="option-blog">
                                 <li><a href="#"><i class="far fa-heart"></i></a></li>
                                 <li><a href="#"><i class="fas fa-eye"></i></a></li>
                                 <li><a href="#"><i class="far fa-comments"></i></a></li>
-                            </ul>
+                            </ul>-->
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 col-xl-4">
                     <div class="blog-box">
                         <div class="blog-img">
-                            <img class="img-fluid" src="{% static 'assets/images/clg2.jpg' %}" alt="" />
+                            <img class="img-fluid" src="{% static 'assets/images/uba.webp' %}" alt="" width="350" />
                         </div>
                         <div class="blog-content">
                             <div class="title-blog">
-                                <h3>MISSION</h3>
-                                <p> Producing graduates with sound technical knowledge and skills in diverse engineering disciplines. Inculcating ethical standards among students, both societal and personal through outreach programs.Creating conducive learning environment with state-of-art infrastructure and laboratories.</p>
+                                <h3>UNNAT BHARATH ABHIYAN</h3>
+                                <p>Develop mechanisms and coordination among educational institutions, implementation agencies, and grassroots stakeholders to enable effective field interventions, select rural clusters for holistic development using sustainable technologies, and reorient academic curricula to address contemporary needs and enrich students' knowledge about societal issues.</p>
                             </div>
-                            <ul class="option-blog">
-                                <li><a href="#"><i class="far fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fas fa-eye"></i></a></li>
-                                <li><a href="#"><i class="far fa-comments"></i></a></li>
-                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 col-xl-4">
+                    <div class="blog-box">
+                        <div class="blog-img">
+                            <img class="img-fluid" src="{% static 'assets/images/image.png' %}" alt="" height="500" width="500"/>
+                        </div>
+                        <div class="blog-content">
+                            <div class="title-blog">
+                                <h3>KAKKADAVU</h3>
+                                <p> The village Kakkadavu is located in Kinathukadavu Taluk of Coimbatore District in the State of Tamil Nadu in India. It is governed by Kakkadavu Gram Panchayat. It comes under Kinathukadavu Community Development Block. The nearest town is Negamam, which is about 4 kilometers away from Kakkadavu.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -628,19 +619,6 @@
                             </ul>
                         </div>
                     </div>
-
-                    <div class="col-lg-4 col-md-12 col-sm-12">
-						<div class="footer-link">
-							<h4>Newsletter</h4>
-							<form class="newsletter-box">
-								<div class="form-group">
-									<input class="" type="email" name="Email" placeholder="Email Address*" />
-									<i class="fa fa-envelope"></i>
-								</div>
-								<button class="btn hvr-hover" type="submit">Submit</button>
-							</form>
-						</div>
-					</div>
                 </div>
             </div>
         </div>

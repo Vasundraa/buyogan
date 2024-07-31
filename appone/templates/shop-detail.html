@@ -35,7 +35,13 @@
     <![endif]-->
 
 </head>
-
+<style>
+    .fixed-size {
+    width: 300px; /* Adjust the width as needed */
+    height: 300px; /* Adjust the height as needed */
+    object-fit: cover; /* This ensures the image covers the entire area without distortion */
+}
+</style>
 <body>
     <!-- Start Main Top -->
     <div class="main-top">
@@ -67,7 +73,7 @@
                                     Plastic and organic waste collection
                                 </li>
                                 <li>
-                                   Kakkadavu
+                                   Kakkadavu Village
                                 </li>
                                 <li>
                                    Unnat Bharat Abhiyan Scheme
@@ -181,151 +187,55 @@
                 <div class="col-xl-5 col-lg-5 col-md-6">
                     <div id="carousel-example-1" class="single-product-slider carousel slide" data-ride="carousel">
                         <div class="carousel-inner" role="listbox">
-                            <div class="carousel-item active"> <img class="d-block w-100"
-                                    src="{% static 'assets/images/big-img-01.jpg' %}" alt="First slide"> </div>
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="{{ product.image.url }}" alt="{{ product.name }}">
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-7 col-lg-7 col-md-6">
                     <div class="single-product-details">
-                        <h2>Jute bags</h2>
+                        <h2>{{ product.name }}</h2>
                         <h4>Short Description:</h4>
-                        <p><b>Product from:</b>"Organisation name"</p>
-                        <p><b>Contact:</b>"Contact detail"</p>
-                        <p><b>Category:</b>Bags</p>
+                        <p><b>Product from &nbsp;:</b> &nbsp;{{ product.organisation_name }}</p>
+                        <p><b>Category&nbsp;:</b> &nbsp;{{ product.category.name }}</p>
+                        <p><b>Quantity&nbsp;:</b> &nbsp;{{ product.quantities }}</p>
+
+                        <p><b>Price&nbsp;:</b> &nbsp;{{ product.price }}</p>
+                        <p><b>Contact&nbsp;:</b> &nbsp;{{ product.contact_details }}</p>
                     </div>
                 </div>
             </div>
-            <div class="row my-5">
-                <div class="col-lg-12">
-                    <div class="title-all text-center">
-                        <h1>Featured Products</h1>
-                        <p>Discover our exclusive range of top-rated products, handpicked just for you.</p>
-                    </div>
-                    <div class="featured-products-box owl-carousel owl-theme">
-                        <div class="item">
-                            <div class="products-single fix">
-                                <div class="box-img-hover">
-                                    <img src="{% static 'assets/images/img-pro-01.jpg' %}" class="img-fluid"
-                                        alt="Image">
-                                    <div class="mask-icon">
-                                        <a class="cart" href="#">View details</a>
-                                    </div>
-                                </div>
-                                <div class="why-text">
-                                    <h4>Lorem ipsum dolor sit amet</h4>
-                                    <h5> $9.79</h5>
-                                </div>
+            
+            <!-- Display product details -->
+<div class="row my-5">
+    <div class="col-lg-12">
+        <div class="title-all text-center">
+            <h1>Featured Products</h1>
+            <p>Discover our exclusive range of top-rated products, handpicked just for you.</p>
+        </div>
+        <div class="featured-products-box owl-carousel owl-theme">
+            {% for random_product in random_products %}
+                <div class="item">
+                    <div class="products-single fix">
+                        <div class="box-img-hover">
+                            <img src="{{ random_product.image.url }}" class="img-fluid fixed-size" alt="{{ random_product.name }}">
+                            <div class="mask-icon">
+                                <a class="cart" href="{% url 'product_detail' random_product.id %}">View details</a>
                             </div>
                         </div>
-                        <div class="item">
-                            <div class="products-single fix">
-                                <div class="box-img-hover">
-                                    <img src="{% static 'assets/images/img-pro-02.jpg' %}" class="img-fluid"
-                                        alt="Image">
-                                    <div class="mask-icon">
-                                        <a class="cart" href="#">View details/a>
-                                    </div>
-                                </div>
-                                <div class="why-text">
-                                    <h4>Lorem ipsum dolor sit amet</h4>
-                                    <h5> $9.79</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="products-single fix">
-                                <div class="box-img-hover">
-                                    <img src="{% static 'assets/images/img-pro-03.jpg' %}" class="img-fluid"
-                                        alt="Image">
-                                    <div class="mask-icon">
-                                        <a class="cart" href="#">View details</a>
-                                    </div>
-                                </div>
-                                <div class="why-text">
-                                    <h4>Lorem ipsum dolor sit amet</h4>
-                                    <h5> $9.79</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="products-single fix">
-                                <div class="box-img-hover">
-                                    <img src="{% static 'assets/images/img-pro-04.jpg' %}" class="img-fluid"
-                                        alt="Image">
-                                    <div class="mask-icon">
-                                        <a class="cart" href="#">View details</a>
-                                    </div>
-                                </div>
-                                <div class="why-text">
-                                    <h4>Lorem ipsum dolor sit amet</h4>
-                                    <h5> $9.79</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="products-single fix">
-                                <div class="box-img-hover">
-                                    <img src="{% static 'assets/images/img-pro-01.jpg' %}" class="img-fluid"
-                                        alt="Image">
-                                    <div class="mask-icon">
-                                        <a class="cart" href="#">View details</a>
-                                    </div>
-                                </div>
-                                <div class="why-text">
-                                    <h4>Lorem ipsum dolor sit amet</h4>
-                                    <h5> $9.79</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="products-single fix">
-                                <div class="box-img-hover">
-                                    <img src="{% static 'assets/images/img-pro-02.jpg' %}" class="img-fluid"
-                                        alt="Image">
-                                    <div class="mask-icon">
-                                        <a class="cart" href="#">View details</a>
-                                    </div>
-                                </div>
-                                <div class="why-text">
-                                    <h4>Lorem ipsum dolor sit amet</h4>
-                                    <h5> $9.79</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="products-single fix">
-                                <div class="box-img-hover">
-                                    <img src="{% static 'assets/images/img-pro-03.jpg' %}" class="img-fluid"
-                                        alt="Image">
-                                    <div class="mask-icon">
-                                        <a class="cart" href="#">View details</a>
-                                    </div>
-                                </div>
-                                <div class="why-text">
-                                    <h4>Lorem ipsum dolor sit amet</h4>
-                                    <h5> $9.79</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="products-single fix">
-                                <div class="box-img-hover">
-                                    <img src="{% static 'assets/images/img-pro-04.jpg' %}" class="img-fluid"
-                                        alt="Image">
-                                    <div class="mask-icon">
-                                        <a class="cart" href="#">View details</a>
-                                    </div>
-                                </div>
-                                <div class="why-text">
-                                    <h4>Lorem ipsum dolor sit amet</h4>
-                                    <h5> $9.79</h5>
-                                </div>
-                            </div>
+                        <div class="why-text">
+                            <h4>{{ random_product.name }}</h4>
+                            <h5> ${{ random_product.price }}</h5>
                         </div>
                     </div>
                 </div>
-            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+            
 
         </div>
     </div>
@@ -498,18 +408,6 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-12 col-sm-12">
-                        <div class="footer-link">
-                            <h4>Newsletter</h4>
-                            <form class="newsletter-box">
-                                <div class="form-group">
-                                    <input class="" type="email" name="Email" placeholder="Email Address*" />
-                                    <i class="fa fa-envelope"></i>
-                                </div>
-                                <button class="btn hvr-hover" type="submit">Submit</button>
-                            </form>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

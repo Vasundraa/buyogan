@@ -120,7 +120,13 @@
           </ol>
           <h6 class="font-weight-bolder mb-0">Dashboard</h6>
         </nav>
-
+        <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+          <ul class="navbar-nav justify-content-end ms-auto">
+              <li class="nav-item d-flex align-items-center">
+                  <a href="{% url 'index' %}" class="btn btn-primary">Back to Home</a>
+              </li>
+          </ul>
+      </div>
       </div>
     </nav>
 
@@ -129,151 +135,138 @@
     <div class="container-fluid py-4">
       <div class="row">
         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-          <div class="card">
-            <div class="card-header p-3 pt-2">
-              <div
-                class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
-                <i class="material-symbols-outlined">water_bottle_large</i>
-
-              </div>
-              <div class="text-end pt-1">
-                <p class="text-sm mb-0 text-capitalize">PET</p>
-                <h4 class="mb-0">2 Tons</h4>
-              </div>
+            <div class="card">
+                <div class="card-header p-3 pt-2">
+                    <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+                        <i class="material-symbols-outlined">water_bottle_large</i>
+                    </div>
+                    <div class="text-end pt-1">
+                        <p class="text-sm mb-0 text-capitalize">PET</p>
+                        <h4 class="mb-0">{{ plastic_item.pet }} Kg</h4>
+                    </div>
+                </div>
+                <hr class="dark horizontal my-0">
+                <div class="card-footer p-3">
+                    <p class="mb-0">Water bottles, jars, caps</p>
+                </div>
             </div>
-            <hr class="dark horizontal my-0">
-            <div class="card-footer p-3">
-              <p class="mb-0"><span class="text-success text-sm font-weight-bolder"></span>Water bottles, jars, caps</p>
-            </div>
-          </div>
         </div>
         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-          <div class="card">
-            <div class="card-header p-3 pt-2">
-              <div
-                class="icon icon-lg icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl mt-n4 position-absolute">
-                <i class="material-symbols-outlined">
-                  cleaning
-                </i>                
-              </div>
-              <div class="text-end pt-1">
-                <p class="text-sm mb-0 text-capitalize">HDPE</p>
-                <h4 class="mb-0">1 Ton</h4>
-              </div>
+            <div class="card">
+                <div class="card-header p-3 pt-2">
+                    <div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl mt-n4 position-absolute">
+                        <i class="material-symbols-outlined">cleaning</i>
+                    </div>
+                    <div class="text-end pt-1">
+                        <p class="text-sm mb-0 text-capitalize">HDPE</p>
+                        <h4 class="mb-0">{{ plastic_item.hdpe }} Kg</h4>
+                    </div>
+                </div>
+                <hr class="dark horizontal my-0">
+                <div class="card-footer p-3">
+                    <p class="mb-0">Shampoo bottles, grocery bags</p>
+                </div>
             </div>
-            <hr class="dark horizontal my-0">
-            <div class="card-footer p-3">
-              <p class="mb-0"><span class="text-success text-sm font-weight-bolder"></span>Shampoo bottles, grocery bags</p>
-            </div>
-          </div>
         </div>
         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-          <div class="card">
-            <div class="card-header p-3 pt-2">
-              <div
-                class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
-                <i class="material-symbols-outlined">
-                  valve
-                </i>
-              </div>
-              <div class="text-end pt-1">
-                <p class="text-sm mb-0 text-capitalize">PVC</p>
-                <h4 class="mb-0">0.4 Ton</h4>
-              </div>
+            <div class="card">
+                <div class="card-header p-3 pt-2">
+                    <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
+                        <i class="material-symbols-outlined">valve</i>
+                    </div>
+                    <div class="text-end pt-1">
+                        <p class="text-sm mb-0 text-capitalize">PVC</p>
+                        <h4 class="mb-0">{{ plastic_item.pvc }} Kg</h4>
+                    </div>
+                </div>
+                <hr class="dark horizontal my-0">
+                <div class="card-footer p-3">
+                    <p class="mb-0">Pipes, sheetings</p>
+                </div>
             </div>
-            <hr class="dark horizontal my-0">
-            <div class="card-footer p-3">
-              <p class="mb-0"><span class="text-danger text-sm font-weight-bolder"></span>Pipes, sheetings</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-sm-6">
-          <div class="card">
-            <div class="card-header p-3 pt-2">
-              <div
-                class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
-                <i class="material-symbols-outlined">
-                  glass_cup
-                </i>
-              </div>
-              <div class="text-end pt-1">
-                <p class="text-sm mb-0 text-capitalize">Other</p>
-                <h4 class="mb-0">3,430</h4>
-              </div>
-            </div>
-            <hr class="dark horizontal my-0">
-            <div class="card-footer p-3">
-              <p class="mb-0"><span class="text-success text-sm font-weight-bolder"></span>Cups, straws, hard packaging</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- New row for additional cards -->
-      <div class="row mt-4"> <!-- Added margin-top to create space between rows -->
-         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-          <div class="card">
-            <div class="card-header p-3 pt-2">
-              <div
-                class="icon icon-lg icon-shape bg-gradient-danger shadow-danger text-center border-radius-xl mt-n4 position-absolute">
-                <i class="material-symbols-outlined">
-                  compost
-                </i>
-              </div>
-              <div class="text-end pt-1">
-                <p class="text-sm mb-0 text-capitalize">Organic</p>
-                <h4 class="mb-0">0.8 Tons</h4>
-              </div>
-            </div>
-            <hr class="dark horizontal my-0">
-            <div class="card-footer p-3">
-              <p class="mb-0"><span class="text-danger text-sm font-weight-bolder"></span>Food waste, yard waste</p>
-            </div>
-          </div>
         </div>
         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-          <div class="card">
-            <div class="card-header p-3 pt-2">
-              <div
-                class="icon icon-lg icon-shape bg-gradient-warning shadow-warning text-center border-radius-xl mt-n4 position-absolute">
-                <i class="material-symbols-outlined">delete</i>
-              </div>
-              <div class="text-end pt-1">
-                <p class="text-sm mb-0 text-capitalize">Total</p>
-                <h4 class="mb-0">1.5 Tons</h4>
-              </div>
+            <div class="card">
+                <div class="card-header p-3 pt-2">
+                    <div class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
+                        <i class="material-symbols-outlined">glass_cup</i>
+                    </div>
+                    <div class="text-end pt-1">
+                        <p class="text-sm mb-0 text-capitalize">Other</p>
+                        <h4 class="mb-0">{{ plastic_item.other }} Kg</h4>
+                    </div>
+                </div>
+                <hr class="dark horizontal my-0">
+                <div class="card-footer p-3">
+                    <p class="mb-0">Cups, straws, hard packaging</p>
+                </div>
             </div>
-            <hr class="dark horizontal my-0">
-            <div class="card-footer p-3">
-              <p class="mb-0"><span class="text-success text-sm font-weight-bolder"></span>Total waste collected</p>
-            </div>
-          </div>
         </div>
-       
-      </div>
+    </div>
+    
+    <!-- New row for additional cards -->
+    <div class="row mt-4">
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+            <div class="card">
+                <div class="card-header p-3 pt-2">
+                    <div class="icon icon-lg icon-shape bg-gradient-danger shadow-danger text-center border-radius-xl mt-n4 position-absolute">
+                        <i class="material-symbols-outlined">compost</i>
+                    </div>
+                    <div class="text-end pt-1">
+                        <p class="text-sm mb-0 text-capitalize">Organic</p>
+                        <h4 class="mb-0">{{ plastic_item.organic }} Kg</h4>
+                    </div>
+                </div>
+                <hr class="dark horizontal my-0">
+                <div class="card-footer p-3">
+                    <p class="mb-0">Food waste, yard waste</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+            <div class="card">
+                <div class="card-header p-3 pt-2">
+                    <div class="icon icon-lg icon-shape bg-gradient-warning shadow-warning text-center border-radius-xl mt-n4 position-absolute">
+                        <i class="material-symbols-outlined">delete</i>
+                    </div>
+                    <div class="text-end pt-1">
+                        <p class="text-sm mb-0 text-capitalize">Total</p>
+                        <h4 class="mb-0">{{ plastic_item.total }} Kg</h4>
+                    </div>
+                </div>
+                <hr class="dark horizontal my-0">
+                <div class="card-footer p-3">
+                    <p class="mb-0">Total waste collected</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
       
       
       <div class="row mt-4">
         <div class="col-lg-4 col-md-6 mt-4 mb-4">
-          <div class="card z-index-2  ">
-            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
-              <div class="bg-gradient-success shadow-success border-radius-lg py-3 pe-1">
-                <div class="chart">
-                  <canvas id="chart-line" class="chart-canvas" height="170"></canvas>
-                </div>
+          <div class="card z-index-2">
+              <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+                  <div class="bg-gradient-success shadow-success border-radius-lg py-3 pe-1">
+                      <div class="chart">
+                          <canvas id="chart-line" class="chart-canvas" height="170"></canvas>
+                      </div>
+                  </div>
               </div>
-            </div>
-            <div class="card-body">
-              <h6 class="mb-0 "> Waste Collection </h6>
-              <p class="text-sm "> (<span class="font-weight-bolder">+15%</span>) increase in this month collection. </p>
-              <hr class="dark horizontal">
-              <div class="d-flex ">
-                <i class="material-icons text-sm my-auto me-1">schedule</i>
-                <p class="mb-0 text-sm"> updated 4 min ago </p>
+              <div class="card-body">
+                  <h6 class="mb-0">Waste Collection</h6>
+                  <p class="text-sm">(<span class="font-weight-bolder">{{ percentage_increase }}</span>) increase in this month collection.</p>
+                  <hr class="dark horizontal">
+                  <div class="d-flex">
+                      <i class="material-icons text-sm my-auto me-1">schedule</i>
+                      
+                      <p class="mb-0 text-sm">Last updated: {{ last_updated }}</p>
+                    </div>
               </div>
-            </div>
           </div>
-        </div>        
+      </div>
+           
         <div class="col-lg-4 col-md-6 mt-4 mb-4">
           <div class="card z-index-2 ">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
@@ -289,7 +282,7 @@
               <hr class="dark horizontal">
               <div class="d-flex ">
                 <i class="material-icons text-sm my-auto me-1">schedule</i>
-                <p class="mb-0 text-sm"> updated 6 days ago </p>
+                <p class="mb-0 text-sm"> Last updated: {{ last_updated }} </p>
               </div>
             </div>
           </div>
@@ -309,7 +302,7 @@
               <hr class="dark horizontal">
               <div class="d-flex ">
                 <i class="material-icons text-sm my-auto me-1">schedule</i>
-                <p class="mb-0 text-sm">just updated</p>
+                <p class="mb-0 text-sm"> Last updated: {{ last_updated }} </p>
               </div>
             </div>
           </div>
@@ -354,19 +347,26 @@
   <script src="../static/assets/js/plugins/chartjs.min.js"></script>
   <script>
     var ctx = document.getElementById("chart-bars").getContext("2d");
+    var fieldData = {
+        'PET': {{ field_data.PET }},
+        'HDPE': {{ field_data.HDPE }},
+        'PVC': {{ field_data.PVC }},
+        'ORGANIC': {{ field_data.ORGANIC }},
+        'OTHER': {{ field_data.OTHER }}
+    };
 
     new Chart(ctx, {
       type: "bar",
       data: {
-        labels: ["PET", "HDPE", "PVC", "ORGANIC", "OTHER"],
+        labels:  Object.keys(fieldData),
         datasets: [{
-          label: "Sales",
+          label: "Count",
           tension: 0.4,
           borderWidth: 0,
           borderRadius: 4,
           borderSkipped: false,
           backgroundColor: "rgba(255, 255, 255, .8)",
-          data: [10, 20, 30, 22, 30],
+          data:Object.values(fieldData),
           maxBarThickness: 6
         },],
       },
@@ -439,9 +439,9 @@
     new Chart(ctx2, {
       type: "line",
       data: {
-        labels: ["Mar", "Apr", "May", "Jun"],
+        labels: {{ labels|safe }},
         datasets: [{
-          label: "Mobile apps",
+          label: "Total Waste",
           tension: 0,
           borderWidth: 0,
           pointRadius: 5,
@@ -452,7 +452,7 @@
           borderWidth: 4,
           backgroundColor: "transparent",
           fill: true,
-          data: [150, 240, 180, 320],
+          data: {{ data|safe }},
           maxBarThickness: 6
 
         }],
@@ -522,7 +522,7 @@
     new Chart(ctx3, {
       type: "line",
       data: {
-        labels: ["Mar", "Apr", "May", "Jun"],
+        labels:{{ months_labels|safe }},
         datasets: [{
           label: "Mobile apps",
           tension: 0,
@@ -534,7 +534,7 @@
           borderWidth: 4,
           backgroundColor: "transparent",
           fill: true,
-          data: [25, 20, 30, 45],
+          data: {{ avg_values|safe }},
           maxBarThickness: 6
 
         }],

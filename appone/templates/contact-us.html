@@ -67,7 +67,7 @@
                                     Plastic and organic waste collection
                                 </li>
                                 <li>
-                                   Kakkadavu
+                                   Kakkadavu Village
                                 </li>
                                 <li>
                                    Unnat Bharat Abhiyan Scheme
@@ -109,7 +109,7 @@
 							<a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">SHOP</a>
 							<ul class="dropdown-menu">
 								<li><a href="{% url 'shop' %}">Sidebar Shop</a></li>
-								<li><a href="{% url 'shop-detail' %}">Shop Detail</a></li>
+								<li><a href="">Shop Detail</a></li>
 								<li><a href="{% url 'cart' %}">Cart</a></li>
 								<li><a href="{% url 'checkout' %}">Checkout</a></li>
 								<li><a href="{% url 'my-account' %}">My Account</a></li>
@@ -209,7 +209,24 @@
                     <div class="contact-form-right">
                         <h2>GET IN TOUCH</h2>
                         <p>Have any questions or need assistance? Reach out to us using the form below, and our team will be happy to help</p>
-                        <form id="contactForm">
+                        {% if messages %}
+                        <div>
+                            {% for message in messages %}
+                                {% if 'error' in message.tags %}
+                                    <div class="alert alert-danger">
+                                {% elif 'success' in message.tags %}
+                                    <div class="alert alert-success">
+                                {% else %}
+                                    <div class="alert alert-info">
+                                {% endif %}
+                                        {{ message }}
+                                    </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                        
+                        <form method="post" action="{% url 'contact-us' %}">
+                            {% csrf_token %}
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -219,19 +236,19 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input type="text" placeholder="Your Email" id="email" class="form-control" name="name" required data-error="Please enter your email">
+                                        <input type="email" placeholder="Your Email" id="email" class="form-control" name="email" required data-error="Please enter your email">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="subject" name="name" placeholder="Subject" required data-error="Please enter your Subject">
+                                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required data-error="Please enter your Subject">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <textarea class="form-control" id="message" placeholder="Your Message" rows="4" data-error="Write your message" required></textarea>
+                                        <textarea class="form-control" id="message" name="message" placeholder="Your Message" rows="4" data-error="Write your message" required></textarea>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                     <div class="submit-button text-center">
@@ -242,7 +259,9 @@
                                 </div>
                             </div>
                         </form>
+                        
                     </div>
+                    
                 </div>
 
             </div>
@@ -324,18 +343,6 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4 col-md-12 col-sm-12">
-						<div class="footer-link">
-							<h4>Newsletter</h4>
-							<form class="newsletter-box">
-								<div class="form-group">
-									<input class="" type="email" name="Email" placeholder="Email Address*" />
-									<i class="fa fa-envelope"></i>
-								</div>
-								<button class="btn hvr-hover" type="submit">Submit</button>
-							</form>
-						</div>
-					</div>
                 </div>
             </div>
         </div>

@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'prj.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME':'prj',
+        'NAME':'Buyoganic',
         'USER':'postgres',
         'PASSWORD':'vasu',
         'HOST':'localhost',

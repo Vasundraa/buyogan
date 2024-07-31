@@ -31,9 +31,12 @@
             fetch('/get_coordinates')
                 .then(response => response.json())
                 .then(data => {
-                    // Update map marker and center
-                    marker.setLatLng([data.latitude, data.longitude]);
-                    map.setView([data.latitude, data.longitude], 13);
+                    // Check if latitude and longitude are not null
+                    if (data.latitude !== null && data.longitude !== null) {
+                        // Update map marker and center
+                        marker.setLatLng([data.latitude, data.longitude]);
+                        map.setView([data.latitude, data.longitude], 13);
+                    }
                 })
                 .catch(error => console.error('Error fetching coordinates:', error));
         }

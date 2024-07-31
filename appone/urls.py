@@ -11,7 +11,7 @@ urlpatterns = [
     path('gallery/', views.cg4, name='gallery'),
     path('', views.cg5, name='index'),
     path('my-account/', views.cg6, name='my-account'),
-    path('shop-detail/', views.cg7, name='shop-detail'),
+    path('product/<int:product_id>/', views.product_detail, name='product_detail'),
     path('shop/',views.shop_view,name='shop'), 
     path('add_to_cart/<int:product_id>/', views.add_to_cart, name='add_to_cart'),     
     path('cart/', views.cart_view, name='cart'),      
@@ -23,7 +23,9 @@ urlpatterns = [
     path('map/', views.db2, name='map'), 
     path('order/', views.db6, name='order'),     
     path('schedule/', views.db3, name='schedule'),   
-    path('accounts/', include('django.contrib.auth.urls')),  
+    path('accounts/', include('django.contrib.auth.urls')), 
+    path('maporgi/', views.ma, name='maporgi'), 
+ 
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
