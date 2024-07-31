@@ -80,12 +80,14 @@ WSGI_APPLICATION = 'prj.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME':'Buyoganic',
-        'USER':'postgres',
-        'PASSWORD':'vasu',
-        'HOST':'localhost',
-        'PORT':'5432',
+        'ENGINE' : 'django.db.backends.sqlite3',
+        'NAME' : os.path.join(BASE_DIR, 'db.sqlite3'),
+        #'ENGINE': 'django.db.backends.postgresql',
+        #'NAME':'Buyoganic',
+        #'USER':'postgres',
+        #'PASSWORD':'vasu',
+        #'HOST':'localhost',
+        #'PORT':'5432',
     }
 }
 
