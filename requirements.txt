@@ -9,7 +9,7 @@ charset-normalizer==3.3.2
 click==8.1.7
 colorama==0.4.6
 dj-database-url==2.1.0
-Django==5.0.3
+Django==3.2.24
 django-cors-headers==4.3.1
 django-filter==24.2
 django-heroku==0.3.1
