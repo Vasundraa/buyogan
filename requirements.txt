@@ -43,7 +43,7 @@ optree==0.11.0
 packaging==24.0
 paho-mqtt==2.1.0
 pillow==9.5.0
-protobuf==4.25.3
+protobuf==4.24.4
 psycopg2==2.9.9
 pycparser==2.22
 Pygments==2.18.0
