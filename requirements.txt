@@ -27,7 +27,6 @@ h5py==3.8.0
 idna==3.7
 itsdangerous==2.1.2
 Jinja2==3.1.4
-keras==2.11.0
 libclang==18.1.1
 Markdown==3.4.4
 markdown-it-py==2.2.0
@@ -36,8 +35,6 @@ mdurl==0.1.2
 ml-dtypes==0.2.0
 mysqlclient==2.1.1
 namex==0.0.8
-numpy== 1.21.6
-opencv-python==4.9.0.80
 opt-einsum==3.3.0
 optree==0.11.0
 packaging==24.0
@@ -53,11 +50,6 @@ rich==13.7.1
 setuptools==68.0.0
 six==1.16.0
 sqlparse==0.4.4
-tensorboard==2.11.2
-tensorboard-data-server==0.7.2
-tensorflow==2.11.0
-tensorflow-hub==0.16.1
-tensorflow-intel==0.0.1
 termcolor==2.3.0
 typing_extensions== 4.7.1
 tzdata==2024.1
