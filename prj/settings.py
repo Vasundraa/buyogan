@@ -137,5 +137,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'upload')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Razorpay API Keys
-RAZORPAY_KEY_ID = 'rzp_test_k2BbdfngMY7erg'
-RAZORPAY_KEY_SECRET = 'ZPrWa422WGhRwMxmB5RPSVNT'
+#RAZORPAY_KEY_ID = 'rzp_test_k2BbdfngMY7erg'
+#RAZORPAY_KEY_SECRET = 'ZPrWa422WGhRwMxmB5RPSVNT'

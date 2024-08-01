@@ -7,7 +7,6 @@ from django.contrib.auth.decorators import login_required
 from .models import *
 from .forms import SignupForm, LoginForm
 from django.conf import settings
-import razorpay
 from django.utils.timezone import now
 from datetime import timedelta
 from datetime import datetime
@@ -175,7 +174,7 @@ def db1(request):
         return render(request, 'payment.html', context)
     return render(request, 'p-dashboard.html')
 '''
-
+'''
 @login_required
 def payment_process(request):
     if request.method == "POST":
@@ -204,7 +203,7 @@ def payment_process(request):
             return redirect("fai")  
     else:
         return HttpResponseBadRequest("Invalid request method.")
-    
+ '''   
 
 def db2(request):
     return render(request, 'map.html')
