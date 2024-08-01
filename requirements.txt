@@ -1,8 +1,5 @@
-﻿absl-py==2.1.0
-adafruit-io==2.7.2
+﻿adafruit-io==2.7.2
 asgiref==3.7.1
-astunparse==1.6.3
-blinker==1.6.2
 click==8.1.7
 dj-database-url==2.1.0
 Django==3.2.24
