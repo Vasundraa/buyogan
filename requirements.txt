@@ -2,7 +2,7 @@
 adafruit-io==2.7.2
 asgiref==3.7.1
 astunparse==1.6.3
-blinker==1.8.2
+blinker==1.6.2
 certifi==2024.2.2
 cffi==1.16.0
 charset-normalizer==3.3.2
