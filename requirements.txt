@@ -36,7 +36,7 @@ mdurl==0.1.2
 ml-dtypes==0.2.0
 mysqlclient==2.1.1
 namex==0.0.8
-numpy==1.26.4
+numpy== 1.21.6
 opencv-python==4.9.0.80
 opt-einsum==3.3.0
 optree==0.11.0
